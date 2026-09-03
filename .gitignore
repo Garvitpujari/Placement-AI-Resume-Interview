@@ -1,0 +1,24 @@
+# Environment variables / secrets
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+myenv/
+.venv/
+
+# Compiled / generated files
+*.exe
+*.db
+
+# Python test / temporary files
+tempCodeRunnerFile.py
+
+# IDE / OS
+.vscode/
+.idea/
