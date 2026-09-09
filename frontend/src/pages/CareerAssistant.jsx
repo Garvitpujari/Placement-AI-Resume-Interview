@@ -5,6 +5,18 @@ import "./CareerAssistant.css";
 
 const API_URL = "http://127.0.0.1:8000";
 
+
+function normalizeAssistantMarkdown(content) {
+  if (content === null || content === undefined) {
+    return "";
+  }
+
+  return String(content)
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n");
+}
+
 function CareerAssistant() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -302,7 +314,9 @@ function CareerAssistant() {
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                     >
-                      {message.content}
+                      {normalizeAssistantMarkdown(
+                        message.content
+                      )}
                     </ReactMarkdown>
                   ) : (
                     message.content
